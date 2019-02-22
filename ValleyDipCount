@@ -1,0 +1,37 @@
+Valley Dip Challenge
+
+  private static int countingValleys( int n, String s ) {
+        String[] ar = s.split( "" );
+        int seaLevel = 0;
+        int valley = 0;
+        int inValley = 0;
+        int mountain = 0;
+        int onMountain = 0;
+        if ( n == 0 ) {
+            return 0;
+        } else if ( n % 2 != 0 ) {
+            return 0;
+        } else {
+            for ( int i = 0; i <= n - 1; i++ ) {
+                if ( ar[i].equals( "U" ) ) {
+                    if ( seaLevel >= 0 ) {
+                        mountain++;
+                    }
+                    seaLevel++;
+                    if ( seaLevel == 0 ) {
+                        inValley++;
+                    }
+                }
+                if ( ar[i].equals( "D" ) ) {
+                    if ( seaLevel <= 0 ) {
+                        valley++;
+                    }
+                    seaLevel--;
+                    if ( seaLevel == 0 ) {
+                        onMountain++;
+                    }
+                }
+            }
+        }
+        return inValley;
+    }
