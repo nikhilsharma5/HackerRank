@@ -1,0 +1,20 @@
+  private static int sockMerchant( int n, int[] ar ) {
+        List<Integer> list = new ArrayList<>();
+        int counter = 0;
+        if ( n == 0 || n == 1 ) {
+            return counter;
+        } else if ( n == 2 && ar[0] == ar[1] ) {
+            counter++;
+            return counter;
+        } else {
+            for ( int i = 0; i <= n - 1; i++ ) {
+                if ( list.contains( ar[i] ) ) {
+                    counter++;
+                    list.remove( Integer.valueOf( ar[i] ) );
+                } else {
+                    list.add( ar[i] );
+                }
+            }
+        }
+        return counter;
+    }
